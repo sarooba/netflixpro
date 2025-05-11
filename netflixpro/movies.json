@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Inception",
+        "year": 2010,
+        "poster": "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+        "description": "A thief who enters the dreams of others to steal secrets."
+    },
+    {
+        "id": 2,
+        "title": "Interstellar",
+        "year": 2014,
+        "poster": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+        "description": "A team of explorers travel through a wormhole in space."
+    }
+]

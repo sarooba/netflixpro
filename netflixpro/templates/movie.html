@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ movie.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Replace the entire content with this enhanced version -->
+<div class="container mt-4" style="background-color: #181818; padding: 2rem; border-radius: 8px;">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ movie.poster }}" class="img-fluid rounded" style="max-width: 100%;">
+        </div>
+        <div class="col-md-8">
+            <h1 class="text-white">{{ movie.title }} ({{ movie.year }})</h1>
+            <div class="d-flex align-items-center mb-3">
+                <span class="badge bg-netflix-red me-2">HD</span>
+                <span class="text-muted">{{ movie.rating }}/10 ★</span>
+            </div>
+            <p class="text-white">{{ movie.description }}</p>
+            <div class="mb-4">
+                <span class="text-muted">Cast: </span>
+                <span class="text-white">{{ movie.cast|join(', ') }}</span>
+            </div>
+            <a href="{{ url_for('home') }}" class="btn btn-outline-netflix me-2">Back</a>
+            <a href="#" class="btn btn-netflix">Play</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

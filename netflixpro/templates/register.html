@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Netflix - Sign Up</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #141414;
+            color: #fff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+                          url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .register-container {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 40px 50px;
+            border-radius: 4px;
+            width: 450px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .netflix-logo {
+            width: 120px;
+            height: 35px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .create-account-text {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .form-control {
+            background: #333;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            height: 45px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .form-control:focus {
+            background: #454545;
+            box-shadow: none;
+            color: #fff;
+        }
+        
+        .form-label {
+            color: #8c8c8c;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .btn-netflix {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px;
+            width: 100%;
+            margin: 20px 0 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-netflix:hover {
+            background-color: #f40612;
+            color: white;
+        }
+        
+        .help-text {
+            color: #b3b3b3;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        
+        .login-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .login-link:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: #e87c03;
+            font-size: 12px;
+            margin-bottom: 12px;
+            padding: 5px 0;
+        }
+        
+        .password-requirements {
+            color: #8c8c8c;
+            font-size: 11px;
+            margin: -8px 0 12px 0;
+        }
+        
+        /* Custom scrollbar */
+        .register-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .register-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="netflix-logo">
+        <div class="create-account-text">Create your account</div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="error-message">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="post">
+            <div class="mb-2">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control" required>
+            </div>
+            
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+                <div class="password-requirements">
+                    Your password must contain between 6 and 60 characters.
+                </div>
+            </div>
+            
+            <div class="mb-2">
+                <label for="confirm_password" class="form-label">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn btn-netflix">Sign Up</button>
+            
+            <div class="help-text mt-3">
+                Already have an account? <a href="{{ url_for('login') }}" class="login-link">Sign in now</a>.
+            </div>
+            
+            <div class="help-text mt-2">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot.
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
